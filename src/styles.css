@@ -79,7 +79,7 @@ input {
         opacity: 1;
         transform: translateY(0);
     }
-}
+
 
 /* Spinner Rotation */
 @keyframes spin {
