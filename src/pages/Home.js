@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import SearchBox from '../components/SearchBox';
 import WeatherCard from '../components/WeatherCard';
 import Forecast from '../components/Forecast';
@@ -10,13 +10,13 @@ const Home = () => {
     const [unit, setUnit] = useState('metric'); // Default to Celsius
     const [lastCity, setLastCity] = useState(null); // Store last searched city
 
-    const handleSearch = async (city) => {
+    const handleSearch = useCallback(async (city) => {
         const weather = await getWeather(city, unit);
         const forecast = await getForecast(city, unit);
         setWeatherData(weather);
         setForecastData(forecast);
         setLastCity(city);     // Remember the city for re-fetching
-    };
+      });
 
     const toggleUnit = async () => {
         const newUnit = unit === 'metric' ? 'imperial' : 'metric';
