@@ -41,7 +41,6 @@ input {
     transition: all 0.3s ease;
     box-shadow: 0 0 0 transparent;
 }
-
 .search-button:hover {
     background: #0ea5e9; /* Hover effect - slightly darker */
     transform: scale(1.05);
@@ -59,18 +58,117 @@ input {
     animation: fadeIn 0.5s ease-out;
 }
 
-/* Loading Spinner */
-.loading {
-    border: 4px solid #ffffff;
-    border-top: 4px solid #007bff;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    animation: spin 1s linear infinite;
+/* Forecast Container */
+.forecast-cards {
+    display: flex;
+    overflow-x: auto;
+    gap: 16px;
+    padding: 20px 0;
+    margin-top: 24px;
+    scroll-behavior: smooth;
+}
+/* Individual Forecast Card */
+.forecast-card {
+    flex: 0 0 auto;
+    min-width: 120px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 16px;
+    color: #f1f5f9;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+.forecast-card:hover {
+    transform: translateY(-5px);
+}
+/* Optional Scrollbar Styling */
+.forecast-cards::-webkit-scrollbar {
+    height: 8px;
+}
+.forecast-cards::-webkit-scrollbar-thumb {
+    background-color: #334155;
+    border-radius: 4px;
+}
+.forecast-cards::-webkit-scrollbar-track {
+    background: transparent;
 }
 
+/*Suggestion List Drop Down*/
+.suggestions-list {
+    position: absolute;
+    width: 80%;
+    max-height: 200px;
+    overflow-y: auto;
+    background: #1e293b;
+    color: #f1f5f9;
+    border-radius: 8px;
+    margin-top: 8px;
+    padding: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+.suggestion-item:hover {
+    background: #334155;
+}
+.suggestions-list::-webkit-scrollbar {
+    width: 6px;
+}
+.suggestions-list::-webkit-scrollbar-thumb {
+    background-color: #475569;
+    border-radius: 6px;
+}
+
+/*Toggle Button styling*/
+.toggle-container {
+    position: relative;
+    width: 100%;
+    height: 50%;
+    background: #1e293b;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.label {
+    font-size: 14px;
+    color: #f1f5f9;
+    flex: 1;
+    text-align: center;
+}
+.slider {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: #38bdf8;
+    color: #0f172a;
+    font-weight: bold;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+.slider.left {
+    transform: translateX(0);
+}
+.slider.right {
+    transform: translateX(100%);
+}
+
+
+
 /* Animation for Card Fade */
-@keyframes fadeIn 
+@keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(20px);
@@ -79,10 +177,11 @@ input {
         opacity: 1;
         transform: translateY(0);
     }
-
+}
 
 /* Spinner Rotation */
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
