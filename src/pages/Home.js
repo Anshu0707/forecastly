@@ -16,7 +16,7 @@ const Home = () => {
         setWeatherData(weather);
         setForecastData(forecast);
         setLastCity(city);     // Remember the city for re-fetching
-      });
+    }, [unit, setWeatherData, setForecastData, setLastCity]);
 
     const toggleUnit = async () => {
         const newUnit = unit === 'metric' ? 'imperial' : 'metric';
