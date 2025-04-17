@@ -35,7 +35,7 @@ const Home = () => {
         if (lastCity) {
             handleSearch(lastCity);
         }
-    }, [unit]);
+    }, [unit, handleSearch, lastCity]);
 
     return (
         <div className='home-container'>
