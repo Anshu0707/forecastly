@@ -2,7 +2,7 @@
 
 A sleek, modern weather application built with **React 19** and powered by the **OpenWeatherMap API**. This app delivers real-time weather info with smart UI/UX features like autocomplete search, responsive layout, and unit toggling.
 
-🎥 **Demo with Output** → [Watch on Google Drive](https://drive.google.com/file/d/1wF6KjEKn5QkBXQijBRn-tAHE-8NA876q/view?usp=sharing)
+🎥 **Demo** → [Watch it Live](https://anshuman-weather-app.netlify.app/)
 
 ---
 
